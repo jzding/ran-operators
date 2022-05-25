@@ -1,0 +1,22 @@
+apiVersion: ran.openshift.io/v1alpha1
+kind: ClusterGroupUpgrade
+metadata:
+  name: cnfde10-hwevents
+  namespace: default
+spec:
+  actions:
+    afterCompletion:
+      deleteObjects: true
+  backup: false
+  clusters:
+  - cnfde10
+  enable: true
+  managedPolicies:
+  - common-cnfde10-subscriptions-policy
+  - common-cnfde10-hw-events-sub-policy
+  - common-cnfde10-hw-events-policy
+  preCaching: false
+  remediationStrategy:
+    maxConcurrency: 1
+    timeout: 240
+
